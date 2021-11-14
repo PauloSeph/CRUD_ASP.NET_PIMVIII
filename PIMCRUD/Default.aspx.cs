@@ -21,7 +21,7 @@ namespace PIMCRUD
             }
         }
         SqlConnection connect = new SqlConnection(ConnectionString);
-        protected void Button1_Click1(object sender, EventArgs e)
+        protected void CriandoUsuario(object sender, EventArgs e)
         {
             
             connect.Open();
@@ -29,9 +29,7 @@ namespace PIMCRUD
             comm.ExecuteNonQuery();
             connect.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Successfully Inserted');", true);
-            LoadRecord();
-
-            
+            LoadRecord();            
                 
         }
 
@@ -98,6 +96,18 @@ namespace PIMCRUD
             }
         }
 
-    
+        protected void Button6_Click(object sender, EventArgs e)
+        {
+            campoNome.Text = "";
+            campoCPF.Text = "";
+            campoTelefone.Text = "";
+            campoCelular.Text = "";
+            campoRua.Text = "";
+            campoNumero.Text = "";
+            campoCep.Text = "";
+            campoBairro.Text = "";
+            campoCidade.Text = "";
+            DropDownListEstado.DataSource = "SP";
+        }
     }
 }

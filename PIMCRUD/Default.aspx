@@ -40,27 +40,30 @@
     <table class="nav-justified" style="display: flex; width: 50%; margin: 0 auto 0 auto;">
 
         <tr>
-            <td style="height: 24px; width: 260px;">
-                ID<br />
-                <asp:TextBox ID="campoId" runat="server" Font-Size="Medium" Width="250px" Style="margin-left: 0"></asp:TextBox>
+            <td style="height: 24px; width: 260px;">ID<br />
+                <asp:TextBox ID="campoId" runat="server" Font-Size="Medium" Width="50px" Style="margin-left: 0"></asp:TextBox>
             </td>
 
         </tr>
 
-        <tr>
+            <tr>
+                <td class="modal-sm" style="width: 260px; height: 20px; color: coral">
+                    <br />
+                    <br />
+                    Dados pessoais</td>
+                <td style="height: 20px; width: 263px;">
+                    <br />
+                </td>
+            </tr>
+
             <td style="width: 260px; height: 24px;">
-                <br />
-                Dados pessoais<br />
-                <br />
+
                 Nome
                 <br />
                 <asp:TextBox ID="campoNome" runat="server" Font-Size="Medium" Width="250px"></asp:TextBox>
             </td>
 
             <td style="height: 24px; width: 260px;">
-                <br />
-                <br />
-                <br />
                 CPF<br />
                 <asp:TextBox ID="campoCPF" runat="server" Font-Size="Medium" Width="250px" Style="margin-left: 0"></asp:TextBox>
             </td>
@@ -93,18 +96,20 @@
                 Endereço</td>
             <td style="height: 20px; width: 263px;"></td>
         </tr>
-        <tr>
-            <td class="modal-sm" style="width: 260px">&nbsp;</td>
-            <td style="width: 263px" class="modal-sm">&nbsp;</td>
-        </tr>
+
 
         <tr>
-            <td style="width: 260px; height: 24px;">Rua
+            <td style="width: 260px; height: 24px;">
+
+                <br />
+                Rua
                 <br />
                 <asp:TextBox ID="campoRua" runat="server" Font-Size="Medium" Width="250px"></asp:TextBox>
             </td>
 
-            <td style="height: 24px; width: 263px;">Número<br />
+            <td style="height: 24px; width: 263px;">
+                <br />
+                Número<br />
                 <asp:TextBox ID="campoNumero" runat="server" Font-Size="Medium" Width="250px" Style="margin-left: 0"></asp:TextBox>
             </td>
         </tr>
@@ -149,10 +154,10 @@
 
 
                 <br />
-                <asp:Button ID="Button1" runat="server" Text="Salvar" BackColor="#6666FF" BorderColor="White" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="100px" OnClick="Button1_Click1" BorderStyle="Solid" BorderWidth="1px" Height="40px" />
+                <asp:Button ID="Button1" runat="server" Text="Salvar" BackColor="#6666FF" BorderColor="White" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="100px" OnClick="CriandoUsuario" BorderStyle="Solid" BorderWidth="1px" Height="40px" />
 
                 &nbsp;
-        <asp:Button ID="Button6" runat="server" Text="Cancelar" BackColor="White" BorderColor="#666699" Font-Bold="True" Font-Size="Medium" ForeColor="#666666" Width="100px" BorderStyle="Solid" BorderWidth="1px" Height="40px" />
+        <asp:Button ID="Button6" runat="server" Text="Cancelar" BackColor="White" BorderColor="#666699" Font-Bold="True" Font-Size="Medium" ForeColor="#666666" Width="100px" BorderStyle="Solid" BorderWidth="1px" Height="40px" OnClick="Button6_Click" />
 
             </td>
         </tr>
