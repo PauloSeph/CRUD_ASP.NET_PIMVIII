@@ -25,11 +25,14 @@ namespace PIMCRUD
         {
             
             connect.Open();
-            SqlCommand comm = new SqlCommand("Insert into Usuarios values('" + int.Parse(TextBox1.Text) + "','" + TextBox2.Text + "','" + DropDownList1.SelectedValue + "','" + double.Parse(TextBox3.Text) + "','" + TextBox4.Text + "')", connect);
+            SqlCommand comm = new SqlCommand("Insert into Usuarios values('" + campoId.Text + "', '" + campoNome.Text + "','" + campoCPF.Text + "','" + campoTelefone.Text + "', '" + campoCelular.Text + "', '" + campoRua.Text + "', '" + campoNumero.Text + "', '" + campoCep.Text + "', '" + campoBairro.Text + "', '" + campoCidade.Text + "', '" + DropDownListEstado.SelectedValue + "' )", connect);
             comm.ExecuteNonQuery();
             connect.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Successfully Inserted');", true);
             LoadRecord();
+
+            
+                
         }
 
         // Método para pegar Obter os dados no component GridView
@@ -46,7 +49,7 @@ namespace PIMCRUD
         protected void Button2_Click(object sender, EventArgs e)
         {
             connect.Open();
-            SqlCommand comm = new SqlCommand("update Usuarios set nome = '" + TextBox2.Text + "', endereco = '" + DropDownList1.SelectedValue + "', idade = '" + double.Parse(TextBox3.Text) + "', contato = '" + TextBox4.Text + "' where id= '" + int.Parse(TextBox1.Text) + "'", connect);
+            SqlCommand comm = new SqlCommand("update Usuarios set nome = '" + campoNome.Text + "', cpf = '" + campoCPF.Text + "', telefone = '" + campoTelefone + "', celular = '" + campoCelular.Text + "', rua = '" + campoRua.Text + "', numero = '" + campoNumero.Text + "', cep = '" + campoCep.Text + "', bairro = '" + campoBairro.Text + "', cidade = '" + campoCidade.Text + "', estador = '" + DropDownListEstado.SelectedValue + "' where id= '" + int.Parse(campoId.Text) + "'", connect);
             comm.ExecuteNonQuery();
             connect.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Successfully Update');", true);
@@ -56,7 +59,7 @@ namespace PIMCRUD
         protected void Button3_Click(object sender, EventArgs e)
         {
             connect.Open();
-            SqlCommand comm = new SqlCommand("delete Usuarios where id= '" + int.Parse(TextBox1.Text) + "'", connect);
+            SqlCommand comm = new SqlCommand("delete Usuarios where id= '" + int.Parse(campoId.Text) + "'", connect);
             comm.ExecuteNonQuery();
             connect.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Usuário foi deletado');", true);
@@ -65,7 +68,7 @@ namespace PIMCRUD
 
         protected void Button4_Click(object sender, EventArgs e)
         {
-            SqlCommand comm = new SqlCommand("select * from Usuarios where id= '" + int.Parse(TextBox1.Text) + "'", connect);
+            SqlCommand comm = new SqlCommand("select * from Usuarios where id= '" + int.Parse(campoId.Text) + "'", connect);
             SqlDataAdapter d = new SqlDataAdapter(comm);
             DataTable dt = new DataTable();
             d.Fill(dt);
@@ -78,14 +81,20 @@ namespace PIMCRUD
         protected void Button5_Click(object sender, EventArgs e)
         {
             connect.Open();
-            SqlCommand comm = new SqlCommand("select * from Usuarios where id= '" + int.Parse(TextBox1.Text) + "'", connect);
+            SqlCommand comm = new SqlCommand("select * from Usuarios where id= '" + int.Parse(campoId.Text) + "'", connect);
             SqlDataReader r = comm.ExecuteReader();
             while (r.Read())
             {
-                TextBox2.Text = r.GetValue(1).ToString();
-                DropDownList1.SelectedValue = r.GetValue(2).ToString();
-                TextBox3.Text = r.GetValue(3).ToString();
-                TextBox4.Text = r.GetValue(4).ToString();
+                campoNome.Text = r.GetValue(1).ToString();
+                campoCPF.Text = r.GetValue(2).ToString();
+                campoTelefone.Text = r.GetValue(3).ToString();
+                campoCelular.Text = r.GetValue(4).ToString();
+                campoRua.Text = r.GetValue(5).ToString();
+                campoNumero.Text = r.GetValue(6).ToString();
+                campoCep.Text = r.GetValue(7).ToString();
+                campoBairro.Text = r.GetValue(8).ToString();
+                campoCidade.Text = r.GetValue(9).ToString();
+                DropDownListEstado.SelectedValue = r.GetValue(10).ToString();
             }
         }
 

@@ -51,22 +51,31 @@ namespace PIMCRUD
         protected global::System.Web.UI.WebControls.Button Button5;
 
         /// <summary>
-        /// TextBox5 control.
+        /// campoId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+        protected global::System.Web.UI.WebControls.TextBox campoId;
 
         /// <summary>
-        /// TextBox6 control.
+        /// campoNome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox6;
+        protected global::System.Web.UI.WebControls.TextBox campoNome;
+
+        /// <summary>
+        /// campoCPF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox campoCPF;
 
         /// <summary>
         /// campoTelefone control.
@@ -87,58 +96,58 @@ namespace PIMCRUD
         protected global::System.Web.UI.WebControls.TextBox campoCelular;
 
         /// <summary>
-        /// TextBox7 control.
+        /// campoRua control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox7;
+        protected global::System.Web.UI.WebControls.TextBox campoRua;
 
         /// <summary>
-        /// TextBox8 control.
+        /// campoNumero control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox8;
+        protected global::System.Web.UI.WebControls.TextBox campoNumero;
 
         /// <summary>
-        /// TextBox9 control.
+        /// campoCep control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox9;
+        protected global::System.Web.UI.WebControls.TextBox campoCep;
 
         /// <summary>
-        /// TextBox10 control.
+        /// campoBairro control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox10;
+        protected global::System.Web.UI.WebControls.TextBox campoBairro;
 
         /// <summary>
-        /// TextBox11 control.
+        /// campoCidade control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox11;
+        protected global::System.Web.UI.WebControls.TextBox campoCidade;
 
         /// <summary>
-        /// DropDownList2 control.
+        /// DropDownListEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListEstado;
 
         /// <summary>
         /// Button1 control.
