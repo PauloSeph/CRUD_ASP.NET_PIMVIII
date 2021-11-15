@@ -21,11 +21,13 @@ namespace PIMCRUD
             }
         }
         SqlConnection connect = new SqlConnection(ConnectionString);
+
+        //POST
         protected void CriandoUsuario(object sender, EventArgs e)
         {
             
             connect.Open();
-            SqlCommand comm = new SqlCommand("Insert into Usuarios values('" + campoId.Text + "', '" + campoNome.Text + "','" + campoCPF.Text + "','" + campoTelefone.Text + "', '" + campoCelular.Text + "', '" + campoRua.Text + "', '" + campoNumero.Text + "', '" + campoCep.Text + "', '" + campoBairro.Text + "', '" + campoCidade.Text + "', '" + DropDownListEstado.SelectedValue + "' )", connect);
+            SqlCommand comm = new SqlCommand("Insert into Usuarios values('" + campoNome.Text + "','" + campoCPF.Text + "','" + campoTelefone.Text + "', '" + campoCelular.Text + "', '" + campoRua.Text + "', '" + campoNumero.Text + "', '" + campoCep.Text + "', '" + campoBairro.Text + "', '" + campoCidade.Text + "', '" + DropDownListEstado.SelectedValue + "' )", connect);
             comm.ExecuteNonQuery();
             connect.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Successfully Inserted');", true);
@@ -33,7 +35,7 @@ namespace PIMCRUD
                 
         }
 
-        // Método para pegar Obter os dados no component GridView
+        // Get - Método para pegar Obter os dados no component GridView
         void LoadRecord()
         {
             SqlCommand comm = new SqlCommand("select * from Usuarios", connect);
@@ -42,19 +44,23 @@ namespace PIMCRUD
             d.Fill(dt);
             GridView1.DataSource = dt;
             GridView1.DataBind();
+            
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+
+        // PUT
+        protected void Atualizar(object sender, EventArgs e)
         {
             connect.Open();
-            SqlCommand comm = new SqlCommand("update Usuarios set nome = '" + campoNome.Text + "', cpf = '" + campoCPF.Text + "', telefone = '" + campoTelefone + "', celular = '" + campoCelular.Text + "', rua = '" + campoRua.Text + "', numero = '" + campoNumero.Text + "', cep = '" + campoCep.Text + "', bairro = '" + campoBairro.Text + "', cidade = '" + campoCidade.Text + "', estador = '" + DropDownListEstado.SelectedValue + "' where id= '" + int.Parse(campoId.Text) + "'", connect);
+            SqlCommand comm = new SqlCommand("update Usuarios set nome = '" + campoNome.Text + "', cpf = '" + campoCPF.Text + "', telefone= '" + campoTelefone.Text + "', celular= '" + campoCelular.Text + "', rua = '" + campoRua.Text + "', numero = '" + campoNumero.Text + "', cep = '" + campoCep.Text + "', bairro = '" + campoBairro.Text + "', cidade = '" + campoCidade.Text + "', estado = '" + DropDownListEstado.SelectedValue + "' where id= '" + int.Parse(campoId.Text) + "'", connect);
             comm.ExecuteNonQuery();
             connect.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Successfully Update');", true);
             LoadRecord();
         }
 
-        protected void Button3_Click(object sender, EventArgs e)
+        // Delete
+        protected void Deletar(object sender, EventArgs e)
         {
             connect.Open();
             SqlCommand comm = new SqlCommand("delete Usuarios where id= '" + int.Parse(campoId.Text) + "'", connect);
@@ -62,9 +68,11 @@ namespace PIMCRUD
             connect.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Usuário foi deletado');", true);
             LoadRecord();
+            
         }
 
-        protected void Button4_Click(object sender, EventArgs e)
+        // Obtendo usuário pelo ID
+        protected void ObterPeloID(object sender, EventArgs e)
         {
             SqlCommand comm = new SqlCommand("select * from Usuarios where id= '" + int.Parse(campoId.Text) + "'", connect);
             SqlDataAdapter d = new SqlDataAdapter(comm);
@@ -76,7 +84,7 @@ namespace PIMCRUD
 
 
         // Preenchendo os campos de acordo com o ID do usuário
-        protected void Button5_Click(object sender, EventArgs e)
+        protected void PopulandoCampos(object sender, EventArgs e)
         {
             connect.Open();
             SqlCommand comm = new SqlCommand("select * from Usuarios where id= '" + int.Parse(campoId.Text) + "'", connect);
@@ -96,7 +104,8 @@ namespace PIMCRUD
             }
         }
 
-        protected void Button6_Click(object sender, EventArgs e)
+        // Limpando campos
+        protected void Clear(object sender, EventArgs e)
         {
             campoNome.Text = "";
             campoCPF.Text = "";

@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="PIMCRUD._Default" %>
 
+
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
 
 
     <h2 style="font-size: x-large; font-family: Verdana; color: slategrey; text-align: center; margin-right: 10px;">PIM VIII - CRUD
@@ -10,17 +13,17 @@
 
     &nbsp;
               
-                <asp:Button ID="Button2" runat="server" Text="Update" BackColor="#9933FF" BorderColor="#9933FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="82px" OnClick="Button2_Click" />
+    <asp:Button ID="Update" runat="server" Text="Update" BackColor="#9933FF" BorderColor="#9933FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="82px" OnClick="Atualizar" />
 
     &nbsp;
               
-                <asp:Button ID="Button3" runat="server" Text="Delete" BackColor="#9933FF" BorderColor="#9933FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="82px" OnClick="Button3_Click" OnClientClick="return confirm('Tem certeza que quer deletar?')" />
+     <asp:Button ID="Delete" runat="server" Text="Delete" BackColor="#9933FF" BorderColor="#9933FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="82px" OnClick="Deletar" OnClientClick="return confirm('Tem certeza que quer deletar?')" />
 
     &nbsp;
               
-                <asp:Button ID="Button4" runat="server" Text="Procurar" BackColor="#9933FF" BorderColor="#9933FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="82px" OnClick="Button4_Click" />
+     <asp:Button ID="GetById" runat="server" Text="Get One" BackColor="#9933FF" BorderColor="#9933FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="82px" OnClick="ObterPeloID" />
 
-    <asp:Button ID="Button5" runat="server" Text="GET" BackColor="#9933FF" BorderColor="#9933FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="82px" OnClick="Button5_Click" />
+    <asp:Button ID="getAll" runat="server" Text="Get" BackColor="#9933FF" BorderColor="#9933FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="82px" OnClick="PopulandoCampos" />
 
 
 
@@ -40,30 +43,32 @@
     <table class="nav-justified" style="display: flex; width: 50%; margin: 0 auto 0 auto;">
 
         <tr>
-            <td style="height: 24px; width: 260px;">ID<br />
+            <td style="height: 24px; width: 260px;">Procurando pelo ID<br />
                 <asp:TextBox ID="campoId" runat="server" Font-Size="Medium" Width="50px" Style="margin-left: 0"></asp:TextBox>
             </td>
 
         </tr>
 
-            <tr>
-                <td class="modal-sm" style="width: 260px; height: 20px; color: coral">
-                    <br />
-                    <br />
-                    Dados pessoais</td>
-                <td style="height: 20px; width: 263px;">
-                    <br />
-                </td>
-            </tr>
+        <tr>
+            <td class="modal-sm" style="width: 260px; height: 20px; color: coral">
+                <br />
+                <br />
+                Dados pessoais</td>
+            <td style="height: 20px; width: 263px;">
+                <br />
+            </td>
+        </tr>
 
+        <tr>
             <td style="width: 260px; height: 24px;">
-
+                <br />
                 Nome
                 <br />
                 <asp:TextBox ID="campoNome" runat="server" Font-Size="Medium" Width="250px"></asp:TextBox>
             </td>
 
             <td style="height: 24px; width: 260px;">
+                <br />
                 CPF<br />
                 <asp:TextBox ID="campoCPF" runat="server" Font-Size="Medium" Width="250px" Style="margin-left: 0"></asp:TextBox>
             </td>
@@ -157,7 +162,7 @@
                 <asp:Button ID="Button1" runat="server" Text="Salvar" BackColor="#6666FF" BorderColor="White" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="100px" OnClick="CriandoUsuario" BorderStyle="Solid" BorderWidth="1px" Height="40px" />
 
                 &nbsp;
-        <asp:Button ID="Button6" runat="server" Text="Cancelar" BackColor="White" BorderColor="#666699" Font-Bold="True" Font-Size="Medium" ForeColor="#666666" Width="100px" BorderStyle="Solid" BorderWidth="1px" Height="40px" OnClick="Button6_Click" />
+        <asp:Button ID="Button6" runat="server" Text="Cancelar" BackColor="White" BorderColor="#666699" Font-Bold="True" Font-Size="Medium" ForeColor="#666666" Width="100px" BorderStyle="Solid" BorderWidth="1px" Height="40px" OnClick="Clear" />
 
             </td>
         </tr>
@@ -173,6 +178,17 @@
     <br />
 
     <h2>Exibindo a tabela de usuários</h2>
-    <asp:GridView ID="GridView1" runat="server" Width="622px">
+
+
+    <asp:GridView ID="GridView1" runat="server" Width="622px" BackColor="Silver" Font-Names="Consolas">
+        <AlternatingRowStyle HorizontalAlign="Center" />
+
+
+
+        <RowStyle HorizontalAlign="Center" Wrap="True" />
+
+
     </asp:GridView>
+    
+    
 </asp:Content>
