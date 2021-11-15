@@ -30,7 +30,7 @@ namespace PIMCRUD
             SqlCommand comm = new SqlCommand("Insert into Usuarios values('" + campoNome.Text + "','" + campoCPF.Text + "','" + campoTelefone.Text + "', '" + campoCelular.Text + "', '" + campoRua.Text + "', '" + campoNumero.Text + "', '" + campoCep.Text + "', '" + campoBairro.Text + "', '" + campoCidade.Text + "', '" + DropDownListEstado.SelectedValue + "' )", connect);
             comm.ExecuteNonQuery();
             connect.Close();
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Successfully Inserted');", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Criado com sucesso');", true);
             LoadRecord();            
                 
         }
@@ -44,7 +44,8 @@ namespace PIMCRUD
             d.Fill(dt);
             GridView1.DataSource = dt;
             GridView1.DataBind();
-            
+           
+
         }
 
 
@@ -55,8 +56,9 @@ namespace PIMCRUD
             SqlCommand comm = new SqlCommand("update Usuarios set nome = '" + campoNome.Text + "', cpf = '" + campoCPF.Text + "', telefone= '" + campoTelefone.Text + "', celular= '" + campoCelular.Text + "', rua = '" + campoRua.Text + "', numero = '" + campoNumero.Text + "', cep = '" + campoCep.Text + "', bairro = '" + campoBairro.Text + "', cidade = '" + campoCidade.Text + "', estado = '" + DropDownListEstado.SelectedValue + "' where id= '" + int.Parse(campoId.Text) + "'", connect);
             comm.ExecuteNonQuery();
             connect.Close();
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Successfully Update');", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Atualizado com sucesso');", true);
             LoadRecord();
+            
         }
 
         // Delete
@@ -68,7 +70,9 @@ namespace PIMCRUD
             connect.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Usuário foi deletado');", true);
             LoadRecord();
+          
             
+
         }
 
         // Obtendo usuário pelo ID
@@ -80,6 +84,7 @@ namespace PIMCRUD
             d.Fill(dt);
             GridView1.DataSource = dt;
             GridView1.DataBind();
+        
         }
 
 
@@ -118,5 +123,9 @@ namespace PIMCRUD
             campoCidade.Text = "";
             DropDownListEstado.DataSource = "SP";
         }
+
+        
+
+
     }
 }
