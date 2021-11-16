@@ -46,6 +46,8 @@ namespace PIMCRUD
         }
 
 
+
+
         // PUT
         protected void Atualizar(object sender, EventArgs e)
         {
@@ -76,7 +78,6 @@ namespace PIMCRUD
             SqlDataAdapter d = new SqlDataAdapter(comm);
             DataTable dt = new DataTable();
             d.Fill(dt);
-
             GridView1.DataSource = dt;
             GridView1.DataBind();
 
@@ -119,6 +120,8 @@ namespace PIMCRUD
             DropDownListEstado.DataSource = "SP";
         }
 
+
+
         protected void populandoPeloID_TextChanged(object sender, EventArgs e)
         {
             connect.Open();
@@ -137,6 +140,11 @@ namespace PIMCRUD
                 campoCidade.Text = r.GetValue(9).ToString();
                 DropDownListEstado.SelectedValue = r.GetValue(10).ToString();
             }
+        }
+
+        protected void Recarregar(object sender, EventArgs e)
+        {
+            LoadRecord();
         }
     }
 }

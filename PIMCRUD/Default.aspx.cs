@@ -22,20 +22,8 @@ namespace PIMCRUD
         }
         SqlConnection connect = new SqlConnection(ConnectionString);
 
-        //POST
-        protected void CriandoUsuario(object sender, EventArgs e)
-        {
-            
-            connect.Open();
-            SqlCommand comm = new SqlCommand("Insert into Usuarios values('" + campoNome.Text + "','" + campoCPF.Text + "','" + campoTelefone.Text + "', '" + campoCelular.Text + "', '" + campoRua.Text + "', '" + campoNumero.Text + "', '" + campoCep.Text + "', '" + campoBairro.Text + "', '" + campoCidade.Text + "', '" + DropDownListEstado.SelectedValue + "' )", connect);
-            comm.ExecuteNonQuery();
-            connect.Close();
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Criado com sucesso');", true);
-                     
-               
-        }
 
-        protected void Clear(object sender, EventArgs e)
+        public void limpar()
         {
             campoNome.Text = "";
             campoCPF.Text = "";
@@ -47,6 +35,28 @@ namespace PIMCRUD
             campoBairro.Text = "";
             campoCidade.Text = "";
             DropDownListEstado.DataSource = "SP";
+        }
+
+
+        //POST
+        protected void CriandoUsuario(object sender, EventArgs e)
+        {
+            
+            connect.Open();
+            SqlCommand comm = new SqlCommand("Insert into Usuarios values('" + campoNome.Text + "','" + campoCPF.Text.ToString() + "','" + campoTelefone.Text.ToString() + "', '" + campoCelular.Text.ToString() + "', '" + campoRua.Text + "', '" + campoNumero.Text + "', '" + campoCep.Text + "', '" + campoBairro.Text + "', '" + campoCidade.Text + "', '" + DropDownListEstado.SelectedValue + "' )", connect); ;
+            comm.ExecuteNonQuery();
+            connect.Close();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Criado com sucesso');", true);
+            limpar();
+
+
+        }
+
+
+
+        protected void Clear(object sender, EventArgs e)
+        {
+            limpar();
         }
 
 

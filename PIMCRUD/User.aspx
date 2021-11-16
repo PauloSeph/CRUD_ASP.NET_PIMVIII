@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Usuários" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="PIMCRUD.About" %>
+﻿<%@ Page Title="Usuários" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="User.aspx.cs" Inherits="PIMCRUD.About" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -6,7 +6,18 @@
         .grid td, .grid th {
             text-align: center;
             padding: 0 20px 0 20px;
-      
+        }
+
+        .botao {
+            margin-left: 80.5%; 
+            margin-top: 4rem;
+            border: solid 1px lightgrey;
+            color: coral;
+            display: inline-block;
+            padding: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.6rem;
         }
 
     </style>
@@ -156,14 +167,15 @@
 
     <asp:Panel runat="server" ID="painelExibirRegistro">
 
-        <br />
-
-        <h2>Exibindo a tabela de usuários </h2>
+        
 
 
+        <h2 style=" margin-left: 8%; font-size: 2rem;">Tabela de usuários </h2>
+
+      
 
 
-        <asp:GridView ID="GridView1" CssClass="grid" runat="server" Width="781px" BackColor="White" Font-Names="Consolas" HorizontalAlign="Center" Height="138px" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
+        <asp:GridView ID="GridView1" CssClass="grid" runat="server" Width="781px" BackColor="White" Font-Names="Consolas" HorizontalAlign="Center" Height="189px" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
 
 
             <AlternatingRowStyle HorizontalAlign="Center" BackColor="#CCCCCC" />
@@ -185,6 +197,13 @@
 
         </asp:GridView>
 
+          <div class="botao"> 
+                <a runat="server" href="~/">Novo usuário</a>
+          </div>
+       
+
+        <br />
+
 
        
 
@@ -204,8 +223,12 @@
             <br />
 
             <div>
+
                 <asp:Button ID="Delete" runat="server" Text="Delete" BackColor="#6666FF"  Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="150px" BorderWidth="1px" Height="40px" BorderStyle="Solid" OnClick="Deletar" OnClientClick="return confirm('Tem certeza que quer deletar?')" />
-                    <asp:Button ID="GetById" runat="server" Text="Consultar" BackColor="#6666FF"  Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="150px" BorderWidth="1px" Height="40px" BorderStyle="Solid" OnClick="ObterPeloID" />
+                <asp:Button ID="GetById" runat="server" Text="Consultar" BackColor="#6666FF"  Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="150px" BorderWidth="1px" Height="40px" BorderStyle="Solid" OnClick="ObterPeloID" />
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="recarregar" runat="server" BorderWidth="0px" Font-Bold="True" Font-Size="Medium" ForeColor="black" Height="40px" OnClick="Recarregar" Text="Recarregar" Width="150px"  Font-Italic="True"   />
 
             </div>
         </div>
