@@ -9,8 +9,8 @@
         }
 
         .botao {
-            margin-left: 80.5%; 
-            margin-top: 4rem;
+            margin-left: 88.7%;
+            margin-bottom: 10px;
             border: solid 1px lightgrey;
             color: coral;
             display: inline-block;
@@ -19,7 +19,6 @@
             font-weight: bold;
             font-size: 1.6rem;
         }
-
     </style>
 
     <h2 style="font-size: x-large; font-family: Verdana; color: slategrey; margin: 50px auto 0 auto; text-align: center;">
@@ -157,7 +156,7 @@
             </tr>
         </table>
 
-         <asp:Button ID="getAll" runat="server" Text="Obter Usuário" BackColor="#6666FF" BorderColor="#9933FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="150px" BorderWidth="1px" Height="40px" BorderStyle="Solid" OnClick="PopulandoCampos" />
+        <asp:Button ID="getAll" runat="server" Text="Obter Usuário" BackColor="#6666FF" BorderColor="#9933FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="150px" BorderWidth="1px" Height="40px" BorderStyle="Solid" OnClick="PopulandoCampos" />
 
         <!-- Ver essa parte amanha // Arrumar o campo ID-->
         <p style="font-weight: bold">Digite o ID para preencher os campos</p>
@@ -167,15 +166,23 @@
 
     <asp:Panel runat="server" ID="painelExibirRegistro">
 
-        
 
 
-        <h2 style=" margin-left: 8%; font-size: 2rem;">Tabela de usuários </h2>
 
-      
+        <div>
+            
+            <h2 style="font-size: 2rem; display: inline;">Tabela de usuários </h2>
+            <span class="botao">
+                <a runat="server" href="~/">Novo usuário</a>
+            </span> 
+                
+            </>
+        </div>
 
 
-        <asp:GridView ID="GridView1" CssClass="grid" runat="server" Width="781px" BackColor="White" Font-Names="Consolas" HorizontalAlign="Center" Height="189px" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
+
+
+        <asp:GridView ID="GridView1" CssClass="grid" runat="server" Width="781px" BackColor="White" Font-Names="Consolas" HorizontalAlign="Center" Height="172px" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
 
 
             <AlternatingRowStyle HorizontalAlign="Center" BackColor="#CCCCCC" />
@@ -197,15 +204,12 @@
 
         </asp:GridView>
 
-          <div class="botao"> 
-                <a runat="server" href="~/">Novo usuário</a>
-          </div>
-       
+
 
         <br />
 
 
-       
+
 
     </asp:Panel>
 
@@ -216,24 +220,24 @@
             <div style="width: 260px;">
 
                 <p style="font-weight: bold; margin-top: 7rem">Digite o ID para consultar ou excluir</p>
-                  <asp:TextBox ID="campoId" runat="server" Font-Size="Medium" Width="40px" Style="margin-left: 0; padding-left: 6px;"></asp:TextBox>
+                <asp:TextBox ID="campoId" runat="server" Font-Size="Medium" Width="40px" Style="margin-left: 0; padding-left: 6px;"></asp:TextBox>
             </div>
 
-             <!-- Definir um botão ou link para exibir o formulário para atualizar o registro e ocultar esse -->
+            <!-- Definir um botão ou link para exibir o formulário para atualizar o registro e ocultar esse -->
             <br />
 
             <div>
 
-                <asp:Button ID="Delete" runat="server" Text="Delete" BackColor="#6666FF"  Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="150px" BorderWidth="1px" Height="40px" BorderStyle="Solid" OnClick="Deletar" OnClientClick="return confirm('Tem certeza que quer deletar?')" />
-                <asp:Button ID="GetById" runat="server" Text="Consultar" BackColor="#6666FF"  Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="150px" BorderWidth="1px" Height="40px" BorderStyle="Solid" OnClick="ObterPeloID" />
+                <asp:Button ID="Delete" runat="server" Text="Delete" BackColor="#6666FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="150px" BorderWidth="1px" Height="40px" BorderStyle="Solid" OnClick="Deletar" OnClientClick="return confirm('Tem certeza que quer deletar?')" />
+                <asp:Button ID="GetById" runat="server" Text="Consultar" BackColor="#6666FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="150px" BorderWidth="1px" Height="40px" BorderStyle="Solid" OnClick="ObterPeloID" />
 
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="recarregar" runat="server" BorderWidth="0px" Font-Bold="True" Font-Size="Medium" ForeColor="black" Height="40px" OnClick="Recarregar" Text="Recarregar" Width="150px"  Font-Italic="True"   />
+                <asp:Button ID="recarregar" runat="server" BorderWidth="0px" Font-Bold="True" Font-Size="Medium" ForeColor="black" Height="40px" OnClick="Recarregar" Text="Recarregar" Width="150px" Font-Italic="True" />
 
             </div>
         </div>
 
-        
+
     </asp:Panel>
 
 
