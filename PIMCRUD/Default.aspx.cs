@@ -17,7 +17,7 @@ namespace PIMCRUD
         {
             if(!IsPostBack)
             {
-                LoadRecord();
+                
             }
         }
         SqlConnection connect = new SqlConnection(ConnectionString);
@@ -31,83 +31,10 @@ namespace PIMCRUD
             comm.ExecuteNonQuery();
             connect.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Criado com sucesso');", true);
-            LoadRecord();            
-                
+                     
+               
         }
 
-        // Get - Método para pegar Obter os dados no component GridView
-        void LoadRecord()
-        {
-            SqlCommand comm = new SqlCommand("select * from Usuarios", connect);
-            SqlDataAdapter d = new SqlDataAdapter(comm);
-            DataTable dt = new DataTable();
-            d.Fill(dt);
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
-          }
-
-
-        // PUT
-        protected void Atualizar(object sender, EventArgs e)
-        {
-            connect.Open();
-            SqlCommand comm = new SqlCommand("update Usuarios set nome = '" + campoNome.Text + "', cpf = '" + campoCPF.Text + "', telefone= '" + campoTelefone.Text + "', celular= '" + campoCelular.Text + "', rua = '" + campoRua.Text + "', numero = '" + campoNumero.Text + "', cep = '" + campoCep.Text + "', bairro = '" + campoBairro.Text + "', cidade = '" + campoCidade.Text + "', estado = '" + DropDownListEstado.SelectedValue + "' where id= '" + int.Parse(campoId.Text) + "'", connect);
-            comm.ExecuteNonQuery();
-            connect.Close();
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Atualizado com sucesso');", true);
-            LoadRecord();
-            
-        }
-
-        // Delete
-        protected void Deletar(object sender, EventArgs e)
-        {
-            connect.Open();
-            SqlCommand comm = new SqlCommand("delete Usuarios where id= '" + int.Parse(campoId.Text) + "'", connect);
-            comm.ExecuteNonQuery();
-            connect.Close();
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Usuário foi deletado');", true);
-            LoadRecord();
-          
-            
-
-        }
-
-        // Obtendo usuário pelo ID
-        protected void ObterPeloID(object sender, EventArgs e)
-        {
-            SqlCommand comm = new SqlCommand("select * from Usuarios where id= '" + int.Parse(campoId.Text) + "'", connect);
-            SqlDataAdapter d = new SqlDataAdapter(comm);
-            DataTable dt = new DataTable();
-            d.Fill(dt);
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
-        
-        }
-
-
-        // Preenchendo os campos de acordo com o ID do usuário
-        protected void PopulandoCampos(object sender, EventArgs e)
-        {
-            connect.Open();
-            SqlCommand comm = new SqlCommand("select * from Usuarios where id= '" + int.Parse(campoId.Text) + "'", connect);
-            SqlDataReader r = comm.ExecuteReader();
-            while (r.Read())
-            {
-                campoNome.Text = r.GetValue(1).ToString();
-                campoCPF.Text = r.GetValue(2).ToString();
-                campoTelefone.Text = r.GetValue(3).ToString();
-                campoCelular.Text = r.GetValue(4).ToString();
-                campoRua.Text = r.GetValue(5).ToString();
-                campoNumero.Text = r.GetValue(6).ToString();
-                campoCep.Text = r.GetValue(7).ToString();
-                campoBairro.Text = r.GetValue(8).ToString();
-                campoCidade.Text = r.GetValue(9).ToString();
-                DropDownListEstado.SelectedValue = r.GetValue(10).ToString();
-            }
-        }
-
-        // Limpando campos
         protected void Clear(object sender, EventArgs e)
         {
             campoNome.Text = "";
@@ -122,7 +49,7 @@ namespace PIMCRUD
             DropDownListEstado.DataSource = "SP";
         }
 
-        
+
 
 
     }
