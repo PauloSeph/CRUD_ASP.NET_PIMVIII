@@ -44,9 +44,7 @@ namespace PIMCRUD
             d.Fill(dt);
             GridView1.DataSource = dt;
             GridView1.DataBind();
-           
-
-        }
+          }
 
 
         // PUT

@@ -9,20 +9,8 @@
     <h2 style="font-size: x-large; font-family: Verdana; color: slategrey; text-align: center; margin-right: 10px;">PIM VIII - CRUD
     </h2>
 
-
-
-
-
-
-
     <br />
     <br />
-
-
-
-
-
-
 
     <table class="nav-justified" style="display: flex; width: 50%; margin: 0 auto 0 auto;">
 
