@@ -32,6 +32,8 @@ namespace PIMCRUD
             LoadRecord();
         }
 
+
+
         SqlConnection connect = new SqlConnection(ConnectionString);
 
         // Get - Método para pegar Obter os dados no component GridView
@@ -145,6 +147,12 @@ namespace PIMCRUD
         protected void Recarregar(object sender, EventArgs e)
         {
             LoadRecord();
+        }
+
+        protected void atualizarUsuarios(object sender, EventArgs e)
+        {
+            atualizarUsuario();
+            Panel1.Visible = false;
         }
     }
 }

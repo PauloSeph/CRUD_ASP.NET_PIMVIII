@@ -8,6 +8,10 @@
             padding: 0 20px 0 20px;
         }
 
+        .botaoAtualizar {
+            margin-left: 600px;
+        }
+
         .botao {
             margin-left: 88.7%;
             margin-bottom: 10px;
@@ -19,6 +23,14 @@
             font-weight: bold;
             font-size: 1.6rem;
         }
+
+        .auto-style1 {
+            width: 342px;
+        }
+
+        .auto-style2 {
+            width: 260px;
+        }
     </style>
 
     <h2 style="font-size: x-large; font-family: Verdana; color: slategrey; margin: 50px auto 0 auto; text-align: center;">
@@ -29,7 +41,14 @@
     <br />
 
     <asp:Panel ID="painelAtualizarForm" runat="server">
+
         <table style="width: 50%; margin: 0 auto 0 auto;">
+
+            <tr>
+                <td class="modal-sm" style="width: 209px; height: 20px; color: coral">
+                    <h2>Atualizar</h2>
+                </td>
+            </tr>
 
             <tr>
                 <td class="modal-sm" style="width: 209px; height: 20px; color: coral">
@@ -135,9 +154,20 @@
                 </td>
             </tr>
             <tr>
-                <td class="modal-sm" style="width: 209px">&nbsp;</td>
+                <td class="modal-sm" style="width: 209px"></td>
+
                 <td style="width: 127px; height: 32px;">
 
+                    <!-- 
+
+                        Não seá usado
+                    <asp:Button ID="getAll" runat="server" BackColor="#6666FF" BorderColor="#9933FF" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True" Font-Size="Medium" ForeColor="White" Height="40px" OnClick="PopulandoCampos" Text="Obter Usuário" Width="150px" />
+                    
+                    <p style="font-weight: bold">
+                        Digite o ID para preencher os campos</p>
+                    <asp:TextBox ID="populandoPeloID" runat="server" Font-Size="Medium" OnTextChanged="populandoPeloID_TextChanged" Style="margin-left: 0; padding-left: 6px;" Width="40px"></asp:TextBox>
+
+                        -->
 
                     <br />
 
@@ -156,11 +186,7 @@
             </tr>
         </table>
 
-        <asp:Button ID="getAll" runat="server" Text="Obter Usuário" BackColor="#6666FF" BorderColor="#9933FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="150px" BorderWidth="1px" Height="40px" BorderStyle="Solid" OnClick="PopulandoCampos" />
 
-        <!-- Ver essa parte amanha // Arrumar o campo ID-->
-        <p style="font-weight: bold">Digite o ID para preencher os campos</p>
-        <asp:TextBox ID="populandoPeloID" runat="server" Font-Size="Medium" Width="40px" Style="margin-left: 0; padding-left: 6px;" OnTextChanged="populandoPeloID_TextChanged"></asp:TextBox>
     </asp:Panel>
 
 
@@ -170,12 +196,12 @@
 
 
         <div>
-            
+
             <h2 style="font-size: 2rem; display: inline;">Tabela de usuários </h2>
             <span class="botao">
                 <a runat="server" href="~/">Novo usuário</a>
-            </span> 
-                
+            </span>
+
             </>
         </div>
 
@@ -217,9 +243,9 @@
 
     <asp:Panel ID="Panel1" runat="server">
         <div style="margin-left: 2rem;">
-            <div style="width: 260px;">
+            <div class="auto-style2">
 
-                <p style="font-weight: bold; margin-top: 7rem">Digite o ID para consultar ou excluir</p>
+                <p style="font-weight: bold; margin-top: 7rem" class="auto-style1">Digite o ID para consultar ou excluir o usuário</p>
                 <asp:TextBox ID="campoId" runat="server" Font-Size="Medium" Width="40px" Style="margin-left: 0; padding-left: 6px;"></asp:TextBox>
             </div>
 
@@ -228,11 +254,21 @@
 
             <div>
 
-                <asp:Button ID="Delete" runat="server" Text="Delete" BackColor="#6666FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="150px" BorderWidth="1px" Height="40px" BorderStyle="Solid" OnClick="Deletar" OnClientClick="return confirm('Tem certeza que quer deletar?')" />
-                <asp:Button ID="GetById" runat="server" Text="Consultar" BackColor="#6666FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="150px" BorderWidth="1px" Height="40px" BorderStyle="Solid" OnClick="ObterPeloID" />
 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="recarregar" runat="server" BorderWidth="0px" Font-Bold="True" Font-Size="Medium" ForeColor="black" Height="40px" OnClick="Recarregar" Text="Recarregar" Width="150px" Font-Italic="True" />
+                <div>
+                    <asp:Button ID="Delete" runat="server" Text="Delete" BackColor="#6666FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="150px" BorderWidth="1px" Height="40px" BorderStyle="Solid" OnClick="Deletar" OnClientClick="return confirm('Tem certeza que quer deletar?')" />
+                    &nbsp;
+                <asp:Button ID="GetById" runat="server" Text="Consultar" BackColor="#6666FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="150px" BorderWidth="1px" Height="40px" BorderStyle="Solid" OnClick="ObterPeloID" />
+                    &nbsp;
+                    <asp:Button ID="atualizar" runat="server" CssClass="botaoAtualizar" BackColor="#6666FF" Font-Bold="True" Font-Size="Medium" ForeColor="White" Width="189px" BorderWidth="1px" Height="40px" BorderStyle="Solid" OnClick="atualizarUsuarios" Text="Atualizar" />
+                </div>
+
+                &nbsp;
+               
+                <div>
+                    <asp:Button ID="recarregar" runat="server" BorderWidth="0px" Font-Bold="True" Font-Size="Medium" ForeColor="black" Height="40px" OnClick="Recarregar" Text="Recarregar" Width="150px" />
+                </div>
+
 
             </div>
         </div>
