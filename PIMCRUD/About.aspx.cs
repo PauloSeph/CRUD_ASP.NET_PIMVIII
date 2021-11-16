@@ -15,11 +15,23 @@ namespace PIMCRUD
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                LoadRecord();
-            }
+            mostrarRegistros();
+
         }
+
+        protected void atualizarUsuario()
+        {
+            painelAtualizarForm.Visible = true;
+            painelExibirRegistro.Visible = false;
+        }
+
+        protected void mostrarRegistros()
+        {
+            painelAtualizarForm.Visible = false;
+            painelExibirRegistro.Visible = true;
+            LoadRecord();
+        }
+
         SqlConnection connect = new SqlConnection(ConnectionString);
 
         // Get - Método para pegar Obter os dados no component GridView
@@ -55,9 +67,6 @@ namespace PIMCRUD
             connect.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Usuário foi deletado');", true);
             LoadRecord();
-
-
-
         }
 
         // Obtendo usuário pelo ID
@@ -67,6 +76,7 @@ namespace PIMCRUD
             SqlDataAdapter d = new SqlDataAdapter(comm);
             DataTable dt = new DataTable();
             d.Fill(dt);
+
             GridView1.DataSource = dt;
             GridView1.DataBind();
 
@@ -77,7 +87,7 @@ namespace PIMCRUD
         protected void PopulandoCampos(object sender, EventArgs e)
         {
             connect.Open();
-            SqlCommand comm = new SqlCommand("select * from Usuarios where id= '" + int.Parse(campoId.Text) + "'", connect);
+            SqlCommand comm = new SqlCommand("select * from Usuarios where id= '" + int.Parse(populandoPeloID.Text) + "'", connect);
             SqlDataReader r = comm.ExecuteReader();
             while (r.Read())
             {
@@ -107,6 +117,26 @@ namespace PIMCRUD
             campoBairro.Text = "";
             campoCidade.Text = "";
             DropDownListEstado.DataSource = "SP";
+        }
+
+        protected void populandoPeloID_TextChanged(object sender, EventArgs e)
+        {
+            connect.Open();
+            SqlCommand comm = new SqlCommand("select * from Usuarios where id= '" + int.Parse(populandoPeloID.Text) + "'", connect);
+            SqlDataReader r = comm.ExecuteReader();
+            while (r.Read())
+            {
+                campoNome.Text = r.GetValue(1).ToString();
+                campoCPF.Text = r.GetValue(2).ToString();
+                campoTelefone.Text = r.GetValue(3).ToString();
+                campoCelular.Text = r.GetValue(4).ToString();
+                campoRua.Text = r.GetValue(5).ToString();
+                campoNumero.Text = r.GetValue(6).ToString();
+                campoCep.Text = r.GetValue(7).ToString();
+                campoBairro.Text = r.GetValue(8).ToString();
+                campoCidade.Text = r.GetValue(9).ToString();
+                DropDownListEstado.SelectedValue = r.GetValue(10).ToString();
+            }
         }
     }
 }
